@@ -1,0 +1,338 @@
+[
+  {
+    "id": "introduce-self",
+    "title": "नमस्ते, मैं टॉम हूँ",
+    "subtitle": "Introduce yourself",
+    "stage": 1,
+    "objective": "Introduce yourself to someone new — name, where you're from, why you're here.",
+    "pattern": "मेरा नाम X है। मैं Y से हूँ। मैं हिन्दी सीख रहा हूँ।",
+    "vocab": [
+      { "hindi": "मेरा नाम ___ है", "transliteration": "merā nām ___ hai", "english": "My name is ___" },
+      { "hindi": "मैं इंग्लैंड से हूँ", "transliteration": "maiṅ iṅglaiṇḍ se hūṅ", "english": "I'm from England" },
+      { "hindi": "हिन्दी सीख रहा हूँ", "transliteration": "hindī sīkh rahā hūṅ", "english": "I'm learning Hindi" },
+      { "hindi": "वाराणसी", "transliteration": "vārāṇasī", "english": "Varanasi" },
+      { "hindi": "आपसे मिलकर खुशी हुई", "transliteration": "āpse milkar khushī huī", "english": "Pleased to meet you" }
+    ],
+    "npcScript": [
+      { "speaker": "Stranger", "hindi": "नमस्ते! आपका नाम क्या है?", "transliteration": "Namaste! Āpkā nām kyā hai?", "english": "Hello! What's your name?" },
+      { "speaker": "Stranger", "hindi": "आप कहाँ से हैं?", "transliteration": "Āp kahā̃ se haĩ?", "english": "Where are you from?" },
+      { "speaker": "Stranger", "hindi": "आप यहाँ क्यों आए?", "transliteration": "Āp yahā̃ kyõ āe?", "english": "Why did you come here?" }
+    ],
+    "hints": [
+      "They're asking who you are.",
+      "Start with: मेरा नाम...",
+      "मेरा नाम ___ है। I'm from... मैं ___ से हूँ।",
+      "मैं ___ से हूँ → इंग्लैंड, अमेरिका, ऑस्ट्रेलिया...",
+      "Say: मेरा नाम टॉम है। मैं इंग्लैंड से हूँ। मैं हिन्दी सीख रहा हूँ। नमस्ते!"
+    ]
+  },
+  {
+    "id": "find-toilet",
+    "title": "टॉयलेट कहाँ है?",
+    "subtitle": "Find a toilet urgently",
+    "stage": 2,
+    "objective": "Ask where the toilet is, understand the answer, and get there.",
+    "pattern": "X कहाँ है? — सीधे / दाएँ / बाएँ — वहाँ पर।",
+    "vocab": [
+      { "hindi": "टॉयलेट", "transliteration": "ṭŏyleṭ", "english": "Toilet" },
+      { "hindi": "कहाँ है?", "transliteration": "kahā̃ hai?", "english": "Where is?" },
+      { "hindi": "सीधे", "transliteration": "sīdhe", "english": "Straight" },
+      { "hindi": "दाएँ", "transliteration": "dāẽ", "english": "Right" },
+      { "hindi": "बाएँ", "transliteration": "bāẽ", "english": "Left" },
+      { "hindi": "वहाँ पर", "transliteration": "vahā̃ par", "english": "Over there" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "टॉयलेट कहाँ है?", "transliteration": "Ṭŏyleṭ kahā̃ hai?", "english": "Where is the toilet?" },
+      { "speaker": "Person", "hindi": "सीधे जाइए, फिर दाएँ। वहाँ पर है।", "transliteration": "Sīdhe jāie, phir dāẽ. Vahā̃ par hai.", "english": "Go straight, then right. It's there." }
+    ],
+    "hints": [
+      "You really need to find a toilet. Ask someone.",
+      "The word for toilet is 'ṭŏyleṭ' in Hindi too.",
+      "टॉयलेट ___ है? Fill the blank.",
+      "टॉयलेट कहाँ है?",
+      "Say: टॉयलेट कहाँ है? — then follow: सीधे, दाएँ, बाएँ"
+    ]
+  },
+  {
+    "id": "buy-milk",
+    "title": "दूध लेना है",
+    "subtitle": "Buy milk from a shop",
+    "stage": 3,
+    "objective": "Ask if a shop has milk, negotiate quantity, pay and leave.",
+    "pattern": "क्या आपके पास X है? — मुझे X चाहिए। — कितने का है?",
+    "vocab": [
+      { "hindi": "दूध", "transliteration": "dūdh", "english": "Milk" },
+      { "hindi": "क्या आपके पास... है?", "transliteration": "kyā āpke pās... hai?", "english": "Do you have...?" },
+      { "hindi": "चाहिए", "transliteration": "cāhiye", "english": "Need / want" },
+      { "hindi": "कितने का है?", "transliteration": "kitne kā hai?", "english": "How much is it?" },
+      { "hindi": "लेना है", "transliteration": "lenā hai", "english": "Want to take" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "क्या आपके पास दूध है?", "transliteration": "Kyā āpke pās dūdh hai?", "english": "Do you have milk?" },
+      { "speaker": "Shopkeeper", "hindi": "हाँ, है। कितना चाहिए?", "transliteration": "Hā̃, hai. Kitnā cāhiye?", "english": "Yes. How much do you need?" },
+      { "speaker": "You", "hindi": "एक लीटर दूध चाहिए। कितने का है?", "transliteration": "Ek līṭar dūdh cāhiye. Kitne kā hai?", "english": "I need one litre milk. How much?" },
+      { "speaker": "Shopkeeper", "hindi": "पचास रुपए।", "transliteration": "Pacās rupae.", "english": "Fifty rupees." }
+    ],
+    "hints": [
+      "Ask if they have milk first.",
+      "क्या आपके पास... — fill in 'dūdh'.",
+      "क्या आपके पास दूध है? Then say how much you need.",
+      "मुझे एक लीटर दूध चाहिए।",
+      "Say: क्या आपके पास दूध है? → एक लीटर चाहिए → कितने का है?"
+    ]
+  },
+  {
+    "id": "directions",
+    "title": "रास्ता बताइए",
+    "subtitle": "Ask for directions",
+    "stage": 4,
+    "objective": "Ask where a place is, understand the directions, and confirm.",
+    "pattern": "X कहाँ है? — पास में / दूर — पैदल / रिक्शा — धन्यवाद!",
+    "vocab": [
+      { "hindi": "रास्ता", "transliteration": "rāstā", "english": "Path / way" },
+      { "hindi": "बताइए", "transliteration": "batāie", "english": "Please tell" },
+      { "hindi": "पास में", "transliteration": "pās mẽ", "english": "Nearby" },
+      { "hindi": "दूर", "transliteration": "dūr", "english": "Far" },
+      { "hindi": "पैदल", "transliteration": "paidal", "english": "On foot" },
+      { "hindi": "रिक्शा", "transliteration": "rikśā", "english": "Rickshaw" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "गंगा घाट कहाँ है?", "transliteration": "Gaṅgā ghāṭ kahā̃ hai?", "english": "Where is the Ganga ghat?" },
+      { "speaker": "Person", "hindi": "पास में है। सीधे जाइए, फिर बाएँ।", "transliteration": "Pās mẽ hai. Sīdhe jāie, phir bāẽ.", "english": "It's nearby. Go straight, then left." },
+      { "speaker": "You", "hindi": "पैदल जा सकता हूँ?", "transliteration": "Paidal jā saktā hū̃?", "english": "Can I walk?" },
+      { "speaker": "Person", "hindi": "हाँ, दस मिनट है।", "transliteration": "Hā̃, das minaṭ hai.", "english": "Yes, it's ten minutes." }
+    ],
+    "hints": [
+      "Ask where the place is.",
+      "___ कहाँ है? → Gaṅgā ghāṭ, maṃdir, sṭeśan...",
+      "गंगा घाट कहाँ है? Then ask if it's far.",
+      "पैदल जा सकता हूँ? = Can I walk?",
+      "Say: गंगा घाट कहाँ है? → पास में? → पैदल जा सकता हूँ? → धन्यवाद!"
+    ]
+  },
+  {
+    "id": "order-food",
+    "title": "कुछ खाना है",
+    "subtitle": "Order something simple",
+    "stage": 5,
+    "objective": "Order food or drink at a simple eatery.",
+    "pattern": "मुझे X चाहिए। — एक X दीजिए। — बिल कितना हुआ?",
+    "vocab": [
+      { "hindi": "चाय", "transliteration": "cāy", "english": "Tea" },
+      { "hindi": "पानी", "transliteration": "pānī", "english": "Water" },
+      { "hindi": "दीजिए", "transliteration": "dījie", "english": "Please give" },
+      { "hindi": "बिल", "transliteration": "bil", "english": "Bill" },
+      { "hindi": "कितना हुआ?", "transliteration": "kitnā huā?", "english": "How much total?" }
+    ],
+    "npcScript": [
+      { "speaker": "Server", "hindi": "क्या चाहिए?", "transliteration": "Kyā cāhiye?", "english": "What do you need?" },
+      { "speaker": "You", "hindi": "एक चाय दीजिए।", "transliteration": "Ek cāy dījie.", "english": "One tea, please." },
+      { "speaker": "Server", "hindi": "कुछ और?", "transliteration": "Kuch aur?", "english": "Anything else?" },
+      { "speaker": "You", "hindi": "बस, बिल कितना हुआ?", "transliteration": "Bas, bil kitnā huā?", "english": "Just the bill, how much?" }
+    ],
+    "hints": [
+      "They're asking what you want.",
+      "Use: मुझे X चाहिए or एक X दीजिए",
+      "एक चाय दीजिए। = One tea, please.",
+      "If they ask 'kuch aur?', say 'bas' for 'just that'.",
+      "Say: एक चाय दीजिए → बस → बिल कितना हुआ?"
+    ]
+  },
+  {
+    "id": "meet-respectfully",
+    "title": "आपसे मिलकर...",
+    "subtitle": "Meet someone respectfully",
+    "stage": 6,
+    "objective": "Meet someone you want to talk to — introduce yourself respectfully, explain your interest.",
+    "pattern": "नमस्ते। मैं X हूँ। मुझे Y में दिलचस्पी है। क्या आप Z सकते हैं?",
+    "vocab": [
+      { "hindi": "दिलचस्पी", "transliteration": "dilcaspī", "english": "Interest" },
+      { "hindi": "संस्कृत", "transliteration": "sans-kr̥t", "english": "Sanskrit" },
+      { "hindi": "सीखना चाहता हूँ", "transliteration": "sīkhnā cāhtā hū̃", "english": "I want to learn" },
+      { "hindi": "क्या आप... सकते हैं?", "transliteration": "kyā āp... sakte haĩ?", "english": "Can you...?" },
+      { "hindi": "गुरुजी", "transliteration": "gurujī", "english": "Respected teacher" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "नमस्ते गुरुजी। मैं टॉम हूँ। मैं संस्कृत सीखना चाहता हूँ।", "transliteration": "Namaste gurujī. Maĩ Tom hū̃. Maĩ sans-kr̥t sīkhnā cāhtā hū̃.", "english": "Hello respected teacher. I'm Tom. I want to learn Sanskrit." },
+      { "speaker": "Teacher", "hindi": "अच्छा! तुम कहाँ से हो?", "transliteration": "Acchā! Tum kahā̃ se ho?", "english": "Good! Where are you from?" },
+      { "speaker": "You", "hindi": "मैं इंग्लैंड से हूँ। क्या आप मुझे पढ़ा सकते हैं?", "transliteration": "Maĩ iṅglaiṇḍ se hū̃. Kyā āp mujhe paṛhā sakte haĩ?", "english": "I'm from England. Can you teach me?" }
+    ],
+    "hints": [
+      "Greet them respectfully with 'gurujī' or 'jī'.",
+      "Say who you are and what you want.",
+      "नमस्ते गुरुजी। मैं ___ हूँ। मैं ___ सीखना चाहता हूँ।",
+      "Ask: क्या आप मुझे पढ़ा सकते हैं?",
+      "Say: नमस्ते गुरुजी। मैं टॉम हूँ। मैं संस्कृत सीखना चाहता हूँ। क्या आप मुझे पढ़ा सकते हैं?"
+    ]
+  },
+  {
+    "id": "find-room",
+    "title": "कमरा चाहिए",
+    "subtitle": "Find and negotiate a room",
+    "stage": 7,
+    "objective": "Ask about a room, negotiate price, agree on terms.",
+    "pattern": "कमरा दिखाइए। — कितने का है? — X से कम दीजिए। — ठीक है, लेता हूँ।",
+    "vocab": [
+      { "hindi": "कमरा", "transliteration": "kamrā", "english": "Room" },
+      { "hindi": "दिखाइए", "transliteration": "dikhāie", "english": "Please show" },
+      { "hindi": "कितने का?", "transliteration": "kitne kā?", "english": "How much?" },
+      { "hindi": "कम दीजिए", "transliteration": "kam dījie", "english": "Give for less" },
+      { "hindi": "लेता हूँ", "transliteration": "letā hū̃", "english": "I'll take it" },
+      { "hindi": "कितने दिन?", "transliteration": "kitne din?", "english": "How many days?" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "कमरा दिखाइए। कितने का है?", "transliteration": "Kamrā dikhāie. Kitne kā hai?", "english": "Please show the room. How much?" },
+      { "speaker": "Owner", "hindi": "दो हज़ार रुपए महीना।", "transliteration": "Do hazār rupae mahīnā.", "english": "Two thousand rupees per month." },
+      { "speaker": "You", "hindi": "थोड़ा महँगा है। पंद्रह सौ दीजिए?", "transliteration": "Thoṛā mahaṅgā hai. Pandrah sau dījie?", "english": "A bit expensive. Give for fifteen hundred?" },
+      { "speaker": "Owner", "hindi": "ठीक है, पंद्रह सौ में ले लीजिए।", "transliteration": "Ṭhīk hai, pandrah sau mẽ le lījie.", "english": "Okay, take it for fifteen hundred." }
+    ],
+    "hints": [
+      "Ask to see the room and the price.",
+      "कमरा दिखाइए। कितने का है?",
+      "If too expensive: थोड़ा महँगा है।",
+      "Bargain: ___ रुपए दीजिए?",
+      "Say: कमरा दिखाइए → कितने का है → पंद्रह सौ दीजिए → ठीक है, लेता हूँ"
+    ]
+  },
+  {
+    "id": "why-varanasi",
+    "title": "यहाँ क्यों आए?",
+    "subtitle": "Explain why you're in Varanasi",
+    "stage": 8,
+    "objective": "Tell someone why you came to Varanasi — learning, spirituality, Sanskrit.",
+    "pattern": "मैं यहाँ X के लिए आया हूँ। — क्योंकि मुझे Y में दिलचस्पी है।",
+    "vocab": [
+      { "hindi": "यहाँ क्यों आए?", "transliteration": "yahā̃ kyõ āe?", "english": "Why did you come here?" },
+      { "hindi": "सीखने के लिए", "transliteration": "sīkhne ke lie", "english": "To learn" },
+      { "hindi": "घूमने के लिए", "transliteration": "ghūmne ke lie", "english": "To travel / see" },
+      { "hindi": "ध्यान / योग", "transliteration": "dhyān / yog", "english": "Meditation / yoga" },
+      { "hindi": "बहुत खूबसूरत है", "transliteration": "bahut khūbsūrat hai", "english": "It's very beautiful" },
+      { "hindi": "अध्यात्म", "transliteration": "adhyātma", "english": "Spirituality" }
+    ],
+    "npcScript": [
+      { "speaker": "Person", "hindi": "आप यहाँ क्यों आए?", "transliteration": "Āp yahā̃ kyõ āe?", "english": "Why did you come here?" },
+      { "speaker": "You", "hindi": "मैं संस्कृत सीखने के लिए आया हूँ। और वाराणसी बहुत खूबसूरत है।", "transliteration": "Maĩ sans-kr̥t sīkhne ke lie āyā hū̃. Aur vārāṇasī bahut khūbsūrat hai.", "english": "I came to learn Sanskrit. And Varanasi is very beautiful." },
+      { "speaker": "Person", "hindi": "अध्यात्म में भी दिलचस्पी है?", "transliteration": "Adhyātma mẽ bhī dilcaspī hai?", "english": "Are you interested in spirituality too?" },
+      { "speaker": "You", "hindi": "हाँ, मुझे शैव दर्शन में दिलचस्पी है।", "transliteration": "Hā̃, mujhe śaiva darśan mẽ dilcaspī hai.", "english": "Yes, I'm interested in Shaiva philosophy." }
+    ],
+    "hints": [
+      "They're asking why you're here.",
+      "Start with: मैं यहाँ ___ के लिए आया हूँ।",
+      "Options: सीखने के लिए, घूमने के लिए, ध्यान के लिए...",
+      "Add why you like it: वाराणसी बहुत खूबसूरत है।",
+      "Say: मैं संस्कृत सीखने के लिए आया हूँ। वाराणसी बहुत खूबसूरत है।"
+    ]
+  },
+  {
+    "id": "meet-sanskrit-teacher",
+    "title": "संस्कृत गुरु से मिलना",
+    "subtitle": "Meet a Sanskrit teacher",
+    "stage": 9,
+    "objective": "Greet a teacher respectfully, explain your level, ask for guidance.",
+    "pattern": "गुरुजी, मैं थोड़ी संस्कृत जानता हूँ। — कृपया मार्गदर्शन कीजिए।",
+    "vocab": [
+      { "hindi": "थोड़ी संस्कृत आती है", "transliteration": "thoṛī sans-kr̥t ātī hai", "english": "I know a little Sanskrit" },
+      { "hindi": "मार्गदर्शन", "transliteration": "mārgdarśan", "english": "Guidance" },
+      { "hindi": "कृपया", "transliteration": "kṛpayā", "english": "Please" },
+      { "hindi": "कहाँ से शुरू करूँ?", "transliteration": "kahā̃ se śurū karū̃?", "english": "Where should I start?" },
+      { "hindi": "धीरे-धीरे", "transliteration": "dhīre-dhīre", "english": "Slowly / gradually" }
+    ],
+    "npcScript": [
+      { "speaker": "You", "hindi": "नमस्ते गुरुजी। मैं टॉम हूँ। मुझे संस्कृत सीखनी है।", "transliteration": "Namaste gurujī. Maĩ Tom hū̃. Mujhe sans-kr̥t sīkhnī hai.", "english": "Hello teacher. I'm Tom. I need to learn Sanskrit." },
+      { "speaker": "Teacher", "hindi": "कितनी संस्कृत आती है?", "transliteration": "Kitnī sans-kr̥t ātī hai?", "english": "How much Sanskrit do you know?" },
+      { "speaker": "You", "hindi": "थोड़ी-थोड़ी। मैं लिपि पढ़ सकता हूँ, लेकिन धीरे-धीरे।", "transliteration": "Thoṛī-thoṛī. Maĩ lipi paṛh saktā hū̃, lekin dhīre-dhīre.", "english": "A little. I can read the script, but slowly." },
+      { "speaker": "Teacher", "hindi": "अच्छा। कल से शुरू करते हैं। विज्ञानभैरव पढ़ोगे?", "transliteration": "Acchā. Kal se śurū karte haĩ. Vijñānabhairava paṛhoge?", "english": "Good. We start tomorrow. Will you read Vijñānabhairava?" }
+    ],
+    "hints": [
+      "Greet as 'gurujī' and introduce yourself.",
+      "Say you want to learn Sanskrit.",
+      "Tell them your level: थोड़ी संस्कृत आती है।",
+      "मैं लिपि पढ़ सकता हूँ = I can read the script.",
+      "Say: नमस्ते गुरुजी। मैं टॉम हूँ। मुझे संस्कृत सीखनी है। थोड़ी आती है, लेकिन धीरे पढ़ता हूँ।"
+    ]
+  },
+  {
+    "id": "survive-lesson",
+    "title": "क्लास में बचना",
+    "subtitle": "Survive a lesson with repair phrases",
+    "stage": 10,
+    "objective": "Use repair phrases during a lesson — ask for repetition, clarification, slower speech.",
+    "pattern": "कृपया धीरे बोलिए। — फिर से बोलिए। — इसका मतलब क्या है?",
+    "vocab": [
+      { "hindi": "फिर से बोलिए", "transliteration": "phir se boliye", "english": "Please say again" },
+      { "hindi": "धीरे बोलिए", "transliteration": "dhīre boliye", "english": "Please speak slowly" },
+      { "hindi": "इसका मतलब क्या है?", "transliteration": "iskā matlab kyā hai?", "english": "What does this mean?" },
+      { "hindi": "समझ नहीं आया", "transliteration": "samajh nahī̃ āyā", "english": "Didn't understand" },
+      { "hindi": "यह कैसे काम करता है?", "transliteration": "yah kaise kām kartā hai?", "english": "How does this work?" }
+    ],
+    "npcScript": [
+      { "speaker": "Teacher", "hindi": "अब विज्ञानभैरव का तीसरा श्लोक पढ़ो।", "transliteration": "Ab vijñānabhairava kā tīsrā ślok paṛho.", "english": "Now read the third verse of Vijñānabhairava." },
+      { "speaker": "You", "hindi": "गुरुजी, कृपया धीरे बोलिए।", "transliteration": "Gurujī, kṛpayā dhīre boliye.", "english": "Teacher, please speak slowly." },
+      { "speaker": "Teacher", "hindi": "तीसरा श्लोक — यह वाला। पढ़ो।", "transliteration": "Tīsrā ślok — yah vālā. Paṛho.", "english": "Third verse — this one. Read it." },
+      { "speaker": "You", "hindi": "मुझे यह शब्द समझ नहीं आया। इसका मतलब क्या है?", "transliteration": "Mujhe yah śabd samajh nahī̃ āyā. Iskā matlab kyā hai?", "english": "I didn't understand this word. What does it mean?" }
+    ],
+    "hints": [
+      "The teacher is asking you to do something.",
+      "If they speak too fast: कृपया धीरे बोलिए।",
+      "If you didn't catch it: फिर से बोलिए।",
+      "If you don't know a word: इसका मतलब क्या है?",
+      "Use: धीरे बोलिए → फिर से बोलिए → इसका मतलब क्या है? → समझ नहीं आया"
+    ]
+  },
+  {
+    "id": "discuss-interests",
+    "title": "मुझे यह पसंद है",
+    "subtitle": "Ask why, how, what — discuss interests",
+    "stage": 11,
+    "objective": "Ask 'why is it like this?' and 'how does this work?' — discuss what you like.",
+    "pattern": "ऐसा क्यों है? — यह कैसे काम करता है? — मुझे X पसंद है क्योंकि...",
+    "vocab": [
+      { "hindi": "ऐसा क्यों है?", "transliteration": "aisā kyõ hai?", "english": "Why is it like this?" },
+      { "hindi": "कैसे काम करता है?", "transliteration": "kaise kām kartā hai?", "english": "How does it work?" },
+      { "hindi": "पसंद है क्योंकि", "transliteration": "pasand hai kyõki", "english": "I like because" },
+      { "hindi": "मुझे लगता है", "transliteration": "mujhe lagtā hai", "english": "I think / it seems to me" },
+      { "hindi": "सही / ग़लत", "transliteration": "sahī / ġalat", "english": "Right / wrong" }
+    ],
+    "npcScript": [
+      { "speaker": "Teacher", "hindi": "संस्कृत में 'शिव' का मतलब कल्याण है।", "transliteration": "Sans-kr̥t mẽ 'śiva' kā matlab kalyāṇ hai.", "english": "In Sanskrit, 'śiva' means auspiciousness." },
+      { "speaker": "You", "hindi": "ऐसा क्यों है? और यह कैसे काम करता है?", "transliteration": "Aisā kyõ hai? Aur yah kaise kām kartā hai?", "english": "Why is it like that? And how does it work?" },
+      { "speaker": "Teacher", "hindi": "शिव √श्वि से आता है — जिसका मतलब है 'जिसमें सब कुछ समाया हो'।", "transliteration": "Śiva √śvi se ātā hai — jiskā matlab hai 'jismẽ sab kuch samāyā ho'.", "english": "Śiva comes from √śvi — meaning 'that which contains everything'." },
+      { "speaker": "You", "hindi": "बहुत दिलचस्प है! मुझे यह पसंद है।", "transliteration": "Bahut dilcasp hai! Mujhe yah pasand hai.", "english": "Very interesting! I like this." }
+    ],
+    "hints": [
+      "Ask about things you're curious about.",
+      "ऐसा क्यों है? = Why is it like this?",
+      "यह कैसे काम करता है? = How does it work?",
+      "मुझे यह पसंद है = I like this.",
+      "Try: ऐसा क्यों है? → बहुत दिलचस्प है → मुझे यह पसंद है"
+    ]
+  },
+  {
+    "id": "first-day-mission",
+    "title": "वाराणसी में पहला दिन",
+    "subtitle": "Complete a connected first-day-in-Varanasi mission",
+    "stage": 12,
+    "objective": "Navigate a full morning in Varanasi — greet, buy chai, ask directions, meet someone, explain why you're here.",
+    "pattern": "Integrated — reuse patterns from stages 1–11 without prompting which one to use.",
+    "vocab": [
+      { "hindi": "सुबह", "transliteration": "subah", "english": "Morning" },
+      { "hindi": "नहाना", "transliteration": "nahānā", "english": "To bathe (in Ganga)" },
+      { "hindi": "मंदिर", "transliteration": "mandir", "english": "Temple" },
+      { "hindi": "संध्या", "transliteration": "sandhyā", "english": "Evening / dusk" },
+      { "hindi": "काशी", "transliteration": "kāśī", "english": "Kashi (old name of Varanasi)" }
+    ],
+    "npcScript": [
+      { "speaker": "Stranger", "hindi": "नमस्ते! सुबह-सुबह कहाँ?", "transliteration": "Namaste! Subah-subah kahā̃?", "english": "Hello! Where are you off to so early?" },
+      { "speaker": "Stranger", "hindi": "गंगा में नहाया?", "transliteration": "Gaṅgā mẽ nahāyā?", "english": "Did you bathe in the Ganga?" },
+      { "speaker": "Stranger", "hindi": "फिर क्या करोगे आज?", "transliteration": "Phir kyā karoge āj?", "english": "What will you do today then?" },
+      { "speaker": "Stranger", "hindi": "अच्छा, तुम तो संस्कृत सीख रहे हो! कहाँ सीखते हो?", "transliteration": "Acchā, tum to sans-kr̥t sīkh rahe ho! Kahā̃ sīkhate ho?", "english": "Oh, you're learning Sanskrit! Where do you study?" }
+    ],
+    "hints": [
+      "You're walking near Dashashwamedh ghat early morning.",
+      "Greet the person first.",
+      "They ask where you're going, if you bathed, what you'll do today.",
+      "Tell them about your Sanskrit studies.",
+      "Use everything from stages 1–11: greet → where from → why here → what learning → what you like"
+    ]
+  }
+]

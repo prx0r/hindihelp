@@ -43,6 +43,53 @@ export interface Unit {
   exercises: Exercise[];
 }
 
+export interface CampaignStage {
+  id: string;
+  title: string;
+  subtitle: string;
+  stage: number;
+  objective: string;
+  pattern: string;
+  vocab: VocabEntry[];
+  npcScript: Dialogue[];
+  hints: string[];
+}
+
+export interface HintLevel {
+  level: 1 | 2 | 3 | 4 | 5;
+  content: string;
+}
+
+export type MasteryLevel = 0 | 1 | 2 | 3 | 4 | 5;
+
+export interface MasteryRecord {
+  chunkId: string;
+  recognition: MasteryLevel;
+  productionHint: MasteryLevel;
+  productionIndependent: MasteryLevel;
+  transfer: MasteryLevel;
+  repair: MasteryLevel;
+}
+
+export interface GenerativeKernel {
+  hindi: string;
+  transliteration: string;
+  english: string;
+  usage: string;
+}
+
+export interface SanskritLesson {
+  id: string;
+  title: string;
+  verse: string;
+  transliteration: string;
+  meaning: string;
+  decomposition: string;
+  rule: string;
+  examples: { input: string; output: string; gloss: string }[];
+  drills: { type: "recognise" | "produce"; prompt: string; answer: string }[];
+}
+
 export interface UnitProgress {
   completed: boolean;
   chapter: number;
