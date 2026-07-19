@@ -1,0 +1,465 @@
+[
+  {
+    "id": "greetings", "title": "नमस्ते! Greetings & Introductions", "subtitle": "Hello, how are you, what's your name", "chapter": 1, "cefr": "A1",
+    "grammar": "Hindi uses the Devanagari script. The verb होना (honā - to be) conjugates: मैं हूँ (I am), आप हैं (you are formal), वह है (he/she is). Question words: क्या (what), कैसे (how), कहाँ (where).",
+    "vocabulary": [
+      { "hindi": "नमस्ते", "transliteration": "namaste", "english": "Hello / Goodbye" },
+      { "hindi": "आप कैसे हैं?", "transliteration": "āp kaise haiṅ?", "english": "How are you? (formal)" },
+      { "hindi": "मैं ठीक हूँ", "transliteration": "maiṅ ṭhīk hūṅ", "english": "I'm fine" },
+      { "hindi": "आपका नाम क्या है?", "transliteration": "āpkā nām kyā hai?", "english": "What is your name?" },
+      { "hindi": "मेरा नाम", "transliteration": "merā nām", "english": "My name is" },
+      { "hindi": "धन्यवाद", "transliteration": "dhanyavād", "english": "Thank you" },
+      { "hindi": "हाँ", "transliteration": "hāṅ", "english": "Yes" },
+      { "hindi": "नहीं", "transliteration": "nahīṅ", "english": "No" },
+      { "hindi": "अच्छा", "transliteration": "acchā", "english": "Good / Okay" },
+      { "hindi": "फिर मिलेंगे", "transliteration": "phir mileṅge", "english": "See you later" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "नमस्ते! आप कैसे हैं?", "transliteration": "Namaste! Āp kaise haiṅ?", "english": "Hello! How are you?" },
+      { "speaker": "B", "hindi": "मैं ठीक हूँ, धन्यवाद। आप सुनाइए?", "transliteration": "Maiṅ ṭhīk hūṅ, dhanyavād. Āp sunāie?", "english": "I'm fine, thanks. And you?" },
+      { "speaker": "A", "hindi": "मैं भी ठीक हूँ। आपका नाम क्या है?", "transliteration": "Maiṅ bhī ṭhīk hūṅ. Āpkā nām kyā hai?", "english": "I'm also fine. What's your name?" },
+      { "speaker": "B", "hindi": "मेरा नाम राहुल है। आपका?", "transliteration": "Merā nām rāhul hai. Āpkā?", "english": "My name is Rahul. Yours?" },
+      { "speaker": "A", "hindi": "मेरा नाम सारा है। आपसे मिलकर खुशी हुई!", "transliteration": "Merā nām sārā hai. Āpse milkar khushī huī!", "english": "My name is Sara. Pleased to meet you!" },
+      { "speaker": "B", "hindi": "बहुत अच्छा! फिर मिलेंगे!", "transliteration": "Bahut acchā! Phir mileṅge!", "english": "Great! See you later!" },
+      { "speaker": "A", "hindi": "नमस्ते!", "transliteration": "Namaste!", "english": "Goodbye!" }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'Hello, how are you?' in Hindi?", "answer": "नमस्ते, आप कैसे हैं?" },
+      { "type": "translate", "prompt": "How do you say 'My name is...' in Hindi?", "answer": "मेरा नाम ___ है" },
+      { "type": "fill_blank", "prompt": "आपका _____ क्या है? (name)", "answer": "नाम" },
+      { "type": "speak", "prompt": "Introduce yourself in Hindi: name, how you are, and say nice to meet you." },
+      { "type": "respond", "prompt": "Someone says 'नमस्ते! आप कैसे हैं?' How do you reply?" }
+    ]
+  },
+  {
+    "id": "script", "title": "अ आ क ख Devanagari & Nouns", "subtitle": "Reading Hindi script and basic noun genders", "chapter": 2, "cefr": "A1",
+    "grammar": "Hindi has 11 vowels and 33 consonants. Nouns have gender (masculine or feminine). Masculine often ends in -आ (लड़का), feminine in -ी (लड़की). The postposition का/के/की shows possession: राहुल का (Rahul's masc), सीता का (Sita's fem).",
+    "vocabulary": [
+      { "hindi": "आदमी", "transliteration": "ādmī", "english": "Man" },
+      { "hindi": "औरत", "transliteration": "aurat", "english": "Woman" },
+      { "hindi": "लड़का", "transliteration": "laṛkā", "english": "Boy" },
+      { "hindi": "लड़की", "transliteration": "laṛkī", "english": "Girl" },
+      { "hindi": "किताब", "transliteration": "kitāb", "english": "Book" },
+      { "hindi": "पानी", "transliteration": "pānī", "english": "Water" },
+      { "hindi": "घर", "transliteration": "ghar", "english": "House / Home" },
+      { "hindi": "स्कूल", "transliteration": "skūl", "english": "School" },
+      { "hindi": "यह", "transliteration": "yah", "english": "This" },
+      { "hindi": "वह", "transliteration": "vah", "english": "That" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "यह क्या है?", "transliteration": "Yah kyā hai?", "english": "What is this?" },
+      { "speaker": "B", "hindi": "यह किताब है।", "transliteration": "Yah kitāb hai.", "english": "This is a book." },
+      { "speaker": "A", "hindi": "यह किसकी किताब है?", "transliteration": "Yah kiskī kitāb hai?", "english": "Whose book is this?" },
+      { "speaker": "B", "hindi": "यह राहुल की किताब है।", "transliteration": "Yah rāhul kī kitāb hai.", "english": "This is Rahul's book." },
+      { "speaker": "A", "hindi": "वह लड़का कौन है?", "transliteration": "Vah laṛkā kaun hai?", "english": "Who is that boy?" },
+      { "speaker": "B", "hindi": "वह मेरा दोस्त है।", "transliteration": "Vah merā dost hai.", "english": "He is my friend." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'What is this?' in Hindi?", "answer": "यह क्या है?" },
+      { "type": "fill_blank", "prompt": "यह _____ किताब है (Rahul's)", "answer": "राहुल की" },
+      { "type": "speak", "prompt": "Point to things around you and say 'यह ___ है' in Hindi." },
+      { "type": "respond", "prompt": "Someone asks 'यह क्या है?' Point to a book and answer." }
+    ]
+  },
+  {
+    "id": "present", "title": "मैं सीखता हूँ Present Tense", "subtitle": "Daily routines and present actions", "chapter": 3, "cefr": "A1",
+    "grammar": "Present tense: verb stem + ता/ती/ते + हूँ/है/हैं/हो. Masculine singular: मैं बोलता हूँ (I speak), वह बोलता है (he speaks). Feminine singular: मैं बोलती हूँ (I speak f), वह बोलती है (she speaks). Plural: हम बोलते हैं (we speak), वे बोलते हैं (they speak).",
+    "vocabulary": [
+      { "hindi": "सीखना", "transliteration": "sīkhnā", "english": "To learn" },
+      { "hindi": "बोलना", "transliteration": "bolnā", "english": "To speak" },
+      { "hindi": "पढ़ना", "transliteration": "paṛhnā", "english": "To read / study" },
+      { "hindi": "लिखना", "transliteration": "likhnā", "english": "To write" },
+      { "hindi": "समझना", "transliteration": "samajhnā", "english": "To understand" },
+      { "hindi": "करना", "transliteration": "karnā", "english": "To do" },
+      { "hindi": "जाना", "transliteration": "jānā", "english": "To go" },
+      { "hindi": "आना", "transliteration": "ānā", "english": "To come" },
+      { "hindi": "रोज़", "transliteration": "roz", "english": "Every day" },
+      { "hindi": "काम", "transliteration": "kām", "english": "Work" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "तुम क्या करते हो?", "transliteration": "Tum kyā karte ho?", "english": "What do you do?" },
+      { "speaker": "B", "hindi": "मैं एक कंपनी में काम करता हूँ।", "transliteration": "Maiṅ ek kampanī meṅ kām kartā hūṅ.", "english": "I work at a company." },
+      { "speaker": "A", "hindi": "तुम हिंदी सीखते हो?", "transliteration": "Tum hindī sīkhte ho?", "english": "Do you learn Hindi?" },
+      { "speaker": "B", "hindi": "हाँ, मैं रोज़ हिंदी पढ़ता हूँ।", "transliteration": "Hāṅ, maiṅ roz hindī paṛhtā hūṅ.", "english": "Yes, I study Hindi every day." },
+      { "speaker": "A", "hindi": "बहुत अच्छा! तुम कितना समझते हो?", "transliteration": "Bahut acchā! Tum kitnā samajhte ho?", "english": "Very good! How much do you understand?" },
+      { "speaker": "B", "hindi": "थोड़ा-थोड़ा समझता हूँ।", "transliteration": "Thoṛā-thoṛā samajhtā hūṅ.", "english": "I understand a little." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'I learn Hindi every day'?", "answer": "मैं रोज़ हिंदी सीखता हूँ" },
+      { "type": "translate", "prompt": "How do you say 'She speaks Hindi'?", "answer": "वह हिंदी बोलती है" },
+      { "type": "fill_blank", "prompt": "वे रोज़ काम पर _____ हैं (go)", "answer": "जाते" },
+      { "type": "speak", "prompt": "Tell the AI what you do every day. Use present tense." },
+      { "type": "respond", "prompt": "A friend asks 'तुम क्या करते हो?' What do you answer?" }
+    ]
+  },
+  {
+    "id": "shopping", "title": "एक-दो-तीन Numbers & Shopping", "subtitle": "Counting, prices, and bargaining", "chapter": 4, "cefr": "A1",
+    "grammar": "Numbers 1-100. Question words: कितना/कितने (how much/many). The postposition का/के/की marks price: पचास रुपए का (for 50 rupees). लेना (to take) and देना (to give) are key shopping verbs.",
+    "vocabulary": [
+      { "hindi": "एक", "transliteration": "ek", "english": "One" },
+      { "hindi": "दो", "transliteration": "do", "english": "Two" },
+      { "hindi": "तीन", "transliteration": "tīn", "english": "Three" },
+      { "hindi": "दस", "transliteration": "das", "english": "Ten" },
+      { "hindi": "बीस", "transliteration": "bīs", "english": "Twenty" },
+      { "hindi": "पचास", "transliteration": "pacās", "english": "Fifty" },
+      { "hindi": "सौ", "transliteration": "sau", "english": "Hundred" },
+      { "hindi": "रुपया / रुपए", "transliteration": "rupayā / rupe", "english": "Rupee(s)" },
+      { "hindi": "महँगा", "transliteration": "mahaṅgā", "english": "Expensive" },
+      { "hindi": "सस्ता", "transliteration": "sastā", "english": "Cheap" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "यह कितने का है?", "transliteration": "Yah kitne kā hai?", "english": "How much is this?" },
+      { "speaker": "D", "hindi": "यह पचास रुपए का है।", "transliteration": "Yah pacās rupe kā hai.", "english": "This is fifty rupees." },
+      { "speaker": "A", "hindi": "बहुत महँगा है! तीस रुपए दीजिए?", "transliteration": "Bahut mahaṅgā hai! Tīs rupe dījie?", "english": "Too expensive! Give it for thirty?" },
+      { "speaker": "D", "hindi": "चालीस रुपए में ले जाइए।", "transliteration": "Cālīs rupe meṅ le jāie.", "english": "Take it for forty rupees." },
+      { "speaker": "A", "hindi": "ठीक है, मैं लेता हूँ। धन्यवाद!", "transliteration": "Ṭhīk hai, maiṅ letā hūṅ. Dhanyavād!", "english": "Okay, I'll take it. Thanks!" }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'How much is this?' in Hindi?", "answer": "यह कितने का है?" },
+      { "type": "translate", "prompt": "How do you say 'It is too expensive!' in Hindi?", "answer": "बहुत महँगा है!" },
+      { "type": "fill_blank", "prompt": "यह दो _____ का है (hundred)", "answer": "सौ" },
+      { "type": "speak", "prompt": "Practice: ask the price, say it's expensive, bargain to half price." },
+      { "type": "respond", "prompt": "A shopkeeper says 'यह दो सौ रुपए का है.' How do you say 'too expensive'?" }
+    ]
+  },
+  {
+    "id": "family", "title": "मेरा परिवार Family & Possessives", "subtitle": "Family members and possessive pronouns", "chapter": 5, "cefr": "A1",
+    "grammar": "Possessive pronouns: मेरा/मेरी (my), तेरा/तेरी (your intimate), आपका/आपकी (your formal), हमारा/हमारी (our), उसका/उसकी (his/her). The possessive agrees with the noun's gender: मेरा भाई (my brother), मेरी बहन (my sister).",
+    "vocabulary": [
+      { "hindi": "माँ", "transliteration": "māṅ", "english": "Mother" },
+      { "hindi": "पिता", "transliteration": "pitā", "english": "Father" },
+      { "hindi": "भाई", "transliteration": "bhāī", "english": "Brother" },
+      { "hindi": "बहन", "transliteration": "bahan", "english": "Sister" },
+      { "hindi": "बेटा", "transliteration": "beṭā", "english": "Son" },
+      { "hindi": "बेटी", "transliteration": "beṭī", "english": "Daughter" },
+      { "hindi": "पति", "transliteration": "pati", "english": "Husband" },
+      { "hindi": "पत्नी", "transliteration": "patnī", "english": "Wife" },
+      { "hindi": "दोस्त", "transliteration": "dost", "english": "Friend" },
+      { "hindi": "बड़ा / बड़ी", "transliteration": "baṛā / baṛī", "english": "Big / older (m/f)" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "आपके परिवार में कौन-कौन है?", "transliteration": "Āpke parivār meṅ kaun-kaun hai?", "english": "Who is in your family?" },
+      { "speaker": "B", "hindi": "मेरे परिवार में माँ, पिता और एक छोटी बहन है।", "transliteration": "Mere parivār meṅ māṅ, pitā aur ek choṭī bahan hai.", "english": "In my family there's mother, father, and a younger sister." },
+      { "speaker": "A", "hindi": "आपके पिता क्या करते हैं?", "transliteration": "Āpke pitā kyā karte haiṅ?", "english": "What does your father do?" },
+      { "speaker": "B", "hindi": "वह एक स्कूल में पढ़ाते हैं।", "transliteration": "Vah ek skūl meṅ paṛhāte haiṅ.", "english": "He teaches at a school." },
+      { "speaker": "A", "hindi": "बहुत अच्छा! आपकी माँ भी पढ़ाती हैं?", "transliteration": "Bahut acchā! Āpkī māṅ bhī paṛhātī haiṅ?", "english": "Great! Does your mother also teach?" },
+      { "speaker": "B", "hindi": "नहीं, वह घर पर हैं।", "transliteration": "Nahīṅ, vah ghar par haiṅ.", "english": "No, she is at home." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'my brother' in Hindi?", "answer": "मेरा भाई" },
+      { "type": "translate", "prompt": "How do you say 'Who is in your family?' in Hindi?", "answer": "आपके परिवार में कौन-कौन है?" },
+      { "type": "fill_blank", "prompt": "यह मेरी _____ है (sister)", "answer": "बहन" },
+      { "type": "speak", "prompt": "Describe your family in Hindi using possessive pronouns." },
+      { "type": "respond", "prompt": "Someone asks 'आपके कितने भाई-बहन हैं?' Tell them how many siblings you have." }
+    ]
+  },
+  {
+    "id": "future", "title": "कल जाऊँगा Future Tense & Plans", "subtitle": "Talking about future plans and intentions", "chapter": 6, "cefr": "A2",
+    "grammar": "Future tense: stem + -ऊँगा/-एगा/-एँगे (masc), -ऊँगी/-एगी/-एँगी (fem). मैं जाऊँगा (I will go m), वह आएगी (she will come), हम देखेंगे (we will see). Time words: कल (tomorrow/yesterday), आज (today), परसों (day after), अगले हफ़्ते (next week).",
+    "vocabulary": [
+      { "hindi": "कल", "transliteration": "kal", "english": "Tomorrow / Yesterday" },
+      { "hindi": "आज", "transliteration": "āj", "english": "Today" },
+      { "hindi": "देखना", "transliteration": "dekhnā", "english": "To see / watch" },
+      { "hindi": "मिलना", "transliteration": "milnā", "english": "To meet" },
+      { "hindi": "सोचना", "transliteration": "socnā", "english": "To think" },
+      { "hindi": "शायद", "transliteration": "śāyad", "english": "Maybe" },
+      { "hindi": "ज़रूर", "transliteration": "zarūr", "english": "Definitely" },
+      { "hindi": "समय", "transliteration": "samay", "english": "Time" },
+      { "hindi": "बाद में", "transliteration": "bād meṅ", "english": "Later" },
+      { "hindi": "फिल्म", "transliteration": "film", "english": "Movie / film" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "कल तुम क्या करोगे?", "transliteration": "Kal tum kyā karoge?", "english": "What will you do tomorrow?" },
+      { "speaker": "B", "hindi": "मैं दिल्ली जाऊँगा। एक दोस्त से मिलूँगा।", "transliteration": "Maiṅ dillī jāūṅgā. Ek dost se milūṅgā.", "english": "I'll go to Delhi. I'll meet a friend." },
+      { "speaker": "A", "hindi": "अच्छा! कितने बजे वापस आओगे?", "transliteration": "Acchā! Kitne baje vāpas āoge?", "english": "Oh! What time will you come back?" },
+      { "speaker": "B", "hindi": "शायद तीन बजे। फिर हम फिल्म देखेंगे?", "transliteration": "Śāyad tīn baje. Phir ham film dekhẽge?", "english": "Maybe at 3. Then we'll watch a movie?" },
+      { "speaker": "A", "hindi": "ज़रूर! मैं टिकट ले लूँगा।", "transliteration": "Zarūr! Maiṅ ṭikaṭ le lūṅgā.", "english": "Definitely! I'll get the tickets." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'I will go to Delhi tomorrow'?", "answer": "मैं कल दिल्ली जाऊँगा" },
+      { "type": "translate", "prompt": "How do you say 'We will watch a movie'?", "answer": "हम फिल्म देखेंगे" },
+      { "type": "fill_blank", "prompt": "वह कल _____ (will come)", "answer": "आएगा/आएगी" },
+      { "type": "speak", "prompt": "Tell the AI what you will do tomorrow. Use future tense." },
+      { "type": "respond", "prompt": "A friend asks 'कल क्या करोगे?' What will you tell them?" }
+    ]
+  },
+  {
+    "id": "past", "title": "क्या हुआ? Past Tense & Stories", "subtitle": "Talking about past events and experiences", "chapter": 7, "cefr": "A2",
+    "grammar": "Simple past: verb stem + -आ/-ए/-ई. For transitive verbs, the subject takes ने (ergative): मैंने खाना खाया (I ate food). Intransitive verbs don't take ने: मैं बाज़ार गया (I went to market). Verb agrees with object in transitive sentences.",
+    "vocabulary": [
+      { "hindi": "कल", "transliteration": "kal", "english": "Yesterday" },
+      { "hindi": "खरीदना", "transliteration": "kharīdnā", "english": "To buy" },
+      { "hindi": "खाना", "transliteration": "khānā", "english": "To eat / food" },
+      { "hindi": "पीना", "transliteration": "pīnā", "english": "To drink" },
+      { "hindi": "गया / गई", "transliteration": "gayā / gaī", "english": "Went (m/f)" },
+      { "hindi": "देखा / देखी", "transliteration": "dekhā / dekhī", "english": "Saw (m/f)" },
+      { "hindi": "किया / की", "transliteration": "kiyā / kī", "english": "Did (m/f)" },
+      { "hindi": "बाज़ार", "transliteration": "bāzār", "english": "Market" },
+      { "hindi": "सब्ज़ी", "transliteration": "sabzī", "english": "Vegetables" },
+      { "hindi": "चाय", "transliteration": "cāy", "english": "Tea" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "कल तुमने क्या किया?", "transliteration": "Kal tumne kyā kiyā?", "english": "What did you do yesterday?" },
+      { "speaker": "B", "hindi": "मैं बाज़ार गया। सब्ज़ी खरीदी।", "transliteration": "Maiṅ bāzār gayā. Sabzī kharīdī.", "english": "I went to the market. Bought vegetables." },
+      { "speaker": "A", "hindi": "फिर क्या किया?", "transliteration": "Phir kyā kiyā?", "english": "Then what did you do?" },
+      { "speaker": "B", "hindi": "एक दोस्त से मिला। हमने चाय पी।", "transliteration": "Ek dost से milā. Hamne cāy pī.", "english": "Met a friend. We drank tea." },
+      { "speaker": "A", "hindi": "बहुत अच्छा! क्या तुमने खाना खाया?", "transliteration": "Bahut acchā! Kyā tumne khānā khāyā?", "english": "Great! Did you eat food?" },
+      { "speaker": "B", "hindi": "हाँ, हमने साथ में खाना खाया।", "transliteration": "Hāṅ, hamne sāth meṅ khānā khāyā.", "english": "Yes, we ate together." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'What did you do yesterday?' in Hindi?", "answer": "कल तुमने क्या किया?" },
+      { "type": "translate", "prompt": "How do you say 'I went to the market' in Hindi?", "answer": "मैं बाज़ार गया" },
+      { "type": "fill_blank", "prompt": "उसने चाय _____ (drank)", "answer": "पी" },
+      { "type": "speak", "prompt": "Tell the AI what you did yesterday. Use past tense with ने where needed." },
+      { "type": "respond", "prompt": "A friend asks 'कल तुमने क्या किया?' Tell them in Hindi." }
+    ]
+  },
+  {
+    "id": "food", "title": "क्या खाएँगे? Food & Restaurants", "subtitle": "Ordering food, dietary needs, and restaurant talk", "chapter": 8, "cefr": "A2",
+    "grammar": "चाहिए (need/want) is impersonal: मुझे पानी चाहिए (I need water). चाहना (to want) is personal: मैं खाना चाहता हूँ (I want to eat). The future can be used for ordering: मैं दाल लूँगा (I'll take dal).",
+    "vocabulary": [
+      { "hindi": "खाना", "transliteration": "khānā", "english": "Food / to eat" },
+      { "hindi": "पानी", "transliteration": "pānī", "english": "Water" },
+      { "hindi": "चाय", "transliteration": "cāy", "english": "Tea" },
+      { "hindi": "दाल", "transliteration": "dāl", "english": "Lentils" },
+      { "hindi": "रोटी", "transliteration": "roṭī", "english": "Flatbread" },
+      { "hindi": "चावल", "transliteration": "cāval", "english": "Rice" },
+      { "hindi": "शाकाहारी", "transliteration": "śākāhārī", "english": "Vegetarian" },
+      { "hindi": "मीठा", "transliteration": "mīṭhā", "english": "Sweet" },
+      { "hindi": "नमकीन", "transliteration": "namkīn", "english": "Salty / savory" },
+      { "hindi": "बिल", "transliteration": "bil", "english": "Bill / check" }
+    ],
+    "dialogues": [
+      { "speaker": "C", "hindi": "मेन्यू दीजिए।", "transliteration": "Menu dījie.", "english": "Please give the menu." },
+      { "speaker": "W", "hindi": "जी, लीजिए। आप क्या लेंगे?", "transliteration": "Jī, lījie. Āp kyā leṅge?", "english": "Here you go. What will you have?" },
+      { "speaker": "C", "hindi": "मैं शाकाहारी हूँ। दाल और रोटी लूँगा।", "transliteration": "Maiṅ śākāhārī hūṅ. Dāl aur roṭī lūṅgā.", "english": "I'm vegetarian. I'll have dal and roti." },
+      { "speaker": "W", "hindi": "बहुत अच्छा। पानी चाहिए?", "transliteration": "Bahut acchā. Pānī chāhie?", "english": "Great. Do you need water?" },
+      { "speaker": "C", "hindi": "हाँ, एक बोतल पानी दीजिए।", "transliteration": "Hāṅ, ek botal pānī dījie.", "english": "Yes, please give a bottle of water." },
+      { "speaker": "W", "hindi": "कुछ मीठा भी लेंगे?", "transliteration": "Kuch mīṭhā bhī leṅge?", "english": "Will you have something sweet too?" },
+      { "speaker": "C", "hindi": "नहीं, बस बिल दीजिए।", "transliteration": "Nahīṅ, bas bil dījie.", "english": "No, just the bill please." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'I need water' in Hindi?", "answer": "मुझे पानी चाहिए" },
+      { "type": "translate", "prompt": "How do you say 'I am vegetarian' in Hindi?", "answer": "मैं शाकाहारी हूँ" },
+      { "type": "fill_blank", "prompt": "मुझे एक गिलास _____ चाहिए (water)", "answer": "पानी" },
+      { "type": "speak", "prompt": "Order at a restaurant: ask for menu, say you're vegetarian, order dal + roti + water." },
+      { "type": "respond", "prompt": "A waiter asks 'आप क्या लेंगे?' Tell them what you want." }
+    ]
+  },
+  {
+    "id": "directions", "title": "कहाँ है? Directions & Location", "subtitle": "Asking and giving directions, postpositions", "chapter": 9, "cefr": "A2",
+    "grammar": "Hindi uses postpositions after nouns: में (in), पर (on), के पास (near), के सामने (in front of), के बगल में (next to). Key question: कहाँ (where). Location responses use यहाँ (here), वहाँ (there).",
+    "vocabulary": [
+      { "hindi": "कहाँ", "transliteration": "kahāṅ", "english": "Where" },
+      { "hindi": "यहाँ", "transliteration": "yahāṅ", "english": "Here" },
+      { "hindi": "वहाँ", "transliteration": "vahāṅ", "english": "There" },
+      { "hindi": "दाएँ", "transliteration": "dāeṅ", "english": "Right" },
+      { "hindi": "बाएँ", "transliteration": "bāeṅ", "english": "Left" },
+      { "hindi": "सीधा", "transliteration": "sīdhā", "english": "Straight" },
+      { "hindi": "में", "transliteration": "meṅ", "english": "In" },
+      { "hindi": "पर", "transliteration": "par", "english": "On" },
+      { "hindi": "के पास", "transliteration": "ke pās", "english": "Near / at" },
+      { "hindi": "दूर", "transliteration": "dūr", "english": "Far" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "क्षमा कीजिए, स्टेशन कहाँ है?", "transliteration": "Kṣamā kījie, sṭeśan kahāṅ hai?", "english": "Excuse me, where is the station?" },
+      { "speaker": "B", "hindi": "सीधे जाइए, फिर दाएँ मुड़िए।", "transliteration": "Sīdhe jāie, phir dāeṅ muṛie.", "english": "Go straight, then turn right." },
+      { "speaker": "A", "hindi": "कितनी दूर है?", "transliteration": "Kitnī dūr hai?", "english": "How far is it?" },
+      { "speaker": "B", "hindi": "पाँच मिनट की दूरी है। बाएँ तरफ़ एक बड़ी इमारत है।", "transliteration": "Pāṅc minaṭ kī dūrī hai. Bāeṅ taraph ek baṛī imārat hai.", "english": "It's five minutes away. There's a big building on the left." },
+      { "speaker": "A", "hindi": "बहुत शुक्रिया!", "transliteration": "Bahut śukriyā!", "english": "Thanks very much!" },
+      { "speaker": "B", "hindi": "जी, आपका स्वागत है।", "transliteration": "Jī, āpkā svāgat hai.", "english": "You're welcome." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you ask 'Where is the station?' in Hindi?", "answer": "स्टेशन कहाँ है?" },
+      { "type": "translate", "prompt": "How do you say 'Go straight, then turn right'?", "answer": "सीधे जाइए, फिर दाएँ मुड़िए" },
+      { "type": "fill_blank", "prompt": "किताब मेज़ _____ है (on)", "answer": "पर" },
+      { "type": "speak", "prompt": "Practice asking directions to a temple or station in Hindi." },
+      { "type": "respond", "prompt": "Someone asks 'बाज़ार कहाँ है?' Give directions in Hindi." }
+    ]
+  },
+  {
+    "id": "imperatives", "title": "बैठिए Commands & Requests", "subtitle": "Politely asking and telling people what to do", "chapter": 10, "cefr": "A2",
+    "grammar": "Imperatives have three levels of politeness. Formal (आप): stem + -इए — बैठिए, कीजिए, जाइए. Familiar (तुम): stem + -ओ — बैठो, करो, जाओ. Intimate (तू): just the stem — बैठ, कर, जा. Negatives use मत: मत जाइए (don't go).",
+    "vocabulary": [
+      { "hindi": "बैठना", "transliteration": "baiṭhnā", "english": "To sit" },
+      { "hindi": "उठना", "transliteration": "uṭhnā", "english": "To stand / get up" },
+      { "hindi": "सुनना", "transliteration": "sunnā", "english": "To listen" },
+      { "hindi": "देखो / देखिए", "transliteration": "dekho / dekhie", "english": "Look (inf/pol)" },
+      { "hindi": "आओ / आइए", "transliteration": "āo / āie", "english": "Come (inf/pol)" },
+      { "hindi": "जाओ / जाइए", "transliteration": "jāo / jāie", "english": "Go (inf/pol)" },
+      { "hindi": "रुको / रुकिए", "transliteration": "ruko / rukie", "english": "Wait (inf/pol)" },
+      { "hindi": "दीजिए", "transliteration": "dījie", "english": "Please give" },
+      { "hindi": "कीजिए", "transliteration": "kījie", "english": "Please do" },
+      { "hindi": "मत", "transliteration": "mat", "english": "Don't (negative)" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "कृपया यहाँ बैठिए।", "transliteration": "Kripayā yahāṅ baiṭhie.", "english": "Please sit here." },
+      { "speaker": "B", "hindi": "धन्यवाद। मुझे एक गिलास पानी दीजिए।", "transliteration": "Dhanyavād. Mujhe ek gilās pānī dījie.", "english": "Thanks. Please give me a glass of water." },
+      { "speaker": "A", "hindi": "जी, लीजिए। यह सुनिए।", "transliteration": "Jī, lījie. Yah sunie.", "english": "Here you go. Listen to this." },
+      { "speaker": "A", "hindi": "यहाँ धूम्रपान मत कीजिए।", "transliteration": "Yahāṅ dhūmrapān mat kījie.", "english": "Please don't smoke here." },
+      { "speaker": "B", "hindi": "माफ़ कीजिए, मैं बाहर जाता हूँ।", "transliteration": "Māf kījie, maiṅ bāhar jātā hūṅ.", "english": "Sorry, I'll go outside." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you politely say 'Please sit here'?", "answer": "कृपया यहाँ बैठिए" },
+      { "type": "translate", "prompt": "How do you say 'Please listen' in Hindi?", "answer": "सुनिए" },
+      { "type": "fill_blank", "prompt": "यहाँ मत _____ (don't go)", "answer": "जाइए" },
+      { "type": "speak", "prompt": "Politely ask someone to sit, give you water, and listen to you." },
+      { "type": "respond", "prompt": "Someone says 'कृपया बैठिए'. How do you respond?" }
+    ]
+  },
+  {
+    "id": "opinions", "title": "मुझे लगता है Opinions & Feelings", "subtitle": "Expressing likes, dislikes, and thoughts", "chapter": 11, "cefr": "B1",
+    "grammar": "पसंद होना (to like): मुझे यह पसंद है (I like this). अच्छा/बुरा लगना (to feel good/bad): मुझे यह अच्छा लगता है (I like this - lit: this feels good to me). मुझे लगता है (I think / it seems to me).",
+    "vocabulary": [
+      { "hindi": "पसंद", "transliteration": "pasand", "english": "Like / preference" },
+      { "hindi": "अच्छा लगना", "transliteration": "acchā lagnā", "english": "To like / feel good" },
+      { "hindi": "बुरा लगना", "transliteration": "burā lagnā", "english": "To dislike / feel bad" },
+      { "hindi": "लगता है", "transliteration": "lagtā hai", "english": "It seems / I think" },
+      { "hindi": "मुश्किल", "transliteration": "muśkil", "english": "Difficult" },
+      { "hindi": "आसान", "transliteration": "āsān", "english": "Easy" },
+      { "hindi": "मज़ेदार", "transliteration": "mazedār", "english": "Fun / enjoyable" },
+      { "hindi": "बोरिंग", "transliteration": "boring", "english": "Boring" },
+      { "hindi": "सच में?", "transliteration": "sac meṅ?", "english": "Really?" },
+      { "hindi": "बिल्कुल", "transliteration": "bilkul", "english": "Absolutely" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "हिंदी कैसी लगती है?", "transliteration": "Hindī kaisī lagtī hai?", "english": "How do you find Hindi?" },
+      { "speaker": "B", "hindi": "मुझे हिंदी बहुत पसंद है। थोड़ी मुश्किल है, लेकिन मज़ेदार है।", "transliteration": "Mujhe hindī bahut pasand hai. Thoṛī muśkil hai, lekin mazedār hai.", "english": "I like Hindi a lot. It's a bit difficult but fun." },
+      { "speaker": "A", "hindi": "मुझे लगता है तुम जल्दी सीख जाओगे।", "transliteration": "Mujhe lagtā hai tum jaldī sīkh jāoge.", "english": "I think you'll learn quickly." },
+      { "speaker": "B", "hindi": "तुम्हें क्या लगता है, क्या मैं अच्छा बोलता हूँ?", "transliteration": "Tumhe kyā lagtā hai, kyā maiṅ acchā boltā hūṅ?", "english": "What do you think, do I speak well?" },
+      { "speaker": "A", "hindi": "बिल्कुल! तुम बहुत अच्छा बोलते हो।", "transliteration": "Bilkul! Tum bahut acchā bolte ho.", "english": "Absolutely! You speak very well." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'I like Hindi' in Hindi?", "answer": "मुझे हिंदी पसंद है" },
+      { "type": "translate", "prompt": "How do you say 'What do you think?' in Hindi?", "answer": "तुम्हें क्या लगता है?" },
+      { "type": "fill_blank", "prompt": "मुझे यह बहुत _____ लगता है (good)", "answer": "अच्छा" },
+      { "type": "speak", "prompt": "Tell the AI your opinion about Hindi. Use पसंद है and लगता है." },
+      { "type": "respond", "prompt": "Someone asks 'हिंदी कैसी लगती है?' Share your opinion." }
+    ]
+  },
+  {
+    "id": "perfective", "title": "मैंने किया है Perfective & Experiences", "subtitle": "Have you ever...? Talking about life experiences", "chapter": 12, "cefr": "B1",
+    "grammar": "Present perfect: verb stem + -आ/-ए/-ई + है/हैं/हूँ. मैंने खाया है (I have eaten). Intransitive: मैं गया हूँ (I have gone). कभी (ever) is used in questions: क्या तुम कभी भारत गए हो? कभी नहीं (never) for negatives.",
+    "vocabulary": [
+      { "hindi": "कभी", "transliteration": "kabhī", "english": "Ever / sometimes" },
+      { "hindi": "कभी नहीं", "transliteration": "kabhī nahīṅ", "english": "Never" },
+      { "hindi": "पहले", "transliteration": "pahle", "english": "Before / first" },
+      { "hindi": "देखा है", "transliteration": "dekhā hai", "english": "Have seen" },
+      { "hindi": "सुना है", "transliteration": "sunā hai", "english": "Have heard" },
+      { "hindi": "गया हूँ / गई हूँ", "transliteration": "gayā hūṅ / gaī hūṅ", "english": "Have gone (m/f)" },
+      { "hindi": "कोशिश करना", "transliteration": "kośiś karnā", "english": "To try" },
+      { "hindi": "खाया है", "transliteration": "khāyā hai", "english": "Have eaten" },
+      { "hindi": "बार", "transliteration": "bār", "english": "Time (occasion)" },
+      { "hindi": "हाल ही में", "transliteration": "hāl hī meṅ", "english": "Recently" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "क्या तुम कभी भारत गए हो?", "transliteration": "Kyā tum kabhī bhārat gae ho?", "english": "Have you ever been to India?" },
+      { "speaker": "B", "hindi": "हाँ, दो बार गया हूँ। बहुत सुंदर देश है।", "transliteration": "Hāṅ, do bār gayā hūṅ. Bahut sundar deś hai.", "english": "Yes, I've been twice. It's a very beautiful country." },
+      { "speaker": "A", "hindi": "क्या ताजमहल देखा है?", "transliteration": "Kyā tājmahal dekhā hai?", "english": "Have you seen the Taj Mahal?" },
+      { "speaker": "B", "hindi": "हाँ, देखा है। बहुत सुंदर इमारत है!", "transliteration": "Hāṅ, dekhā hai. Bahut sundar imārat hai!", "english": "Yes, I've seen it. A beautiful building!" },
+      { "speaker": "A", "hindi": "मैंने कभी नहीं देखा। मैं जाना चाहता हूँ।", "transliteration": "Maine kabhī nahīṅ dekhā. Maiṅ jānā cāhtā hūṅ.", "english": "I've never seen it. I want to go." },
+      { "speaker": "B", "hindi": "ज़रूर जाओ। तुम्हें बहुत अच्छा लगेगा!", "transliteration": "Zarūr jāo. Tumhe bahut acchā lagegā!", "english": "Definitely go. You'll really like it!" }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you ask 'Have you been to India?'", "answer": "क्या तुम कभी भारत गए हो?" },
+      { "type": "translate", "prompt": "How do you say 'I have never seen it'?", "answer": "मैंने कभी नहीं देखा" },
+      { "type": "fill_blank", "prompt": "तुमने कभी दाल _____ है? (have eaten)", "answer": "खाई" },
+      { "type": "speak", "prompt": "Tell the AI about a place you've visited. Use perfective tense." },
+      { "type": "respond", "prompt": "Someone asks 'क्या आपने कभी भारतीय खाना खाया है?' Answer them." }
+    ]
+  },
+  {
+    "id": "compound", "title": "कर सकते हैं Compound Verbs & Ability", "subtitle": "Can, could, and compound verbs for complete actions", "chapter": 13, "cefr": "B1",
+    "grammar": "सकना (can) follows the stem: मैं कर सकता हूँ (I can do). Compound verbs add nuance: कर लेना (do for oneself), कर देना (do completely), खा लेना (eat up), आ जाना (arrive - lit: come + go). लेना (take) and देना (give) as auxiliaries change who the action benefits.",
+    "vocabulary": [
+      { "hindi": "सकना", "transliteration": "saknā", "english": "Can / to be able" },
+      { "hindi": "कर लेना", "transliteration": "kar lenā", "english": "To finish (for self)" },
+      { "hindi": "कर देना", "transliteration": "kar denā", "english": "To do (completely)" },
+      { "hindi": "ले लेना", "transliteration": "le lenā", "english": "To take (for self)" },
+      { "hindi": "दे देना", "transliteration": "de denā", "english": "To give away" },
+      { "hindi": "आ जाना", "transliteration": "ā jānā", "english": "To arrive / come" },
+      { "hindi": "चुकना", "transliteration": "cuknā", "english": "To finish (already done)" },
+      { "hindi": "पाना", "transliteration": "pānā", "english": "To get / obtain" },
+      { "hindi": "रखना", "transliteration": "rakhnā", "english": "To keep / put" },
+      { "hindi": "थक जाना", "transliteration": "thak jānā", "english": "To get tired" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "क्या तुम हिंदी बोल सकते हो?", "transliteration": "Kyā tum hindī bol sakte ho?", "english": "Can you speak Hindi?" },
+      { "speaker": "B", "hindi": "हाँ, थोड़ी बोल सकता हूँ।", "transliteration": "Hāṅ, thoṛī bol saktā hūṅ.", "english": "Yes, I can speak a little." },
+      { "speaker": "A", "hindi": "क्या तुमने अपना काम कर लिया?", "transliteration": "Kyā tumne apnā kām kar liyā?", "english": "Did you finish your work?" },
+      { "speaker": "B", "hindi": "हाँ, मैंने कर दिया। आराम कर सकते हो।", "transliteration": "Hāṅ, maine kar diyā. Ārām kar sakte ho.", "english": "Yes, I did it all. You can rest." },
+      { "speaker": "A", "hindi": "बहुत अच्छा! तुम बहुत थक गए हो?", "transliteration": "Bahut acchā! Tum bahut thak gae ho?", "english": "Great! Have you gotten tired?" },
+      { "speaker": "B", "hindi": "थोड़ा थक गया हूँ, लेकिन खुश हूँ।", "transliteration": "Thoṛā thak gayā hūṅ, lekin khush hūṅ.", "english": "I'm a bit tired but happy." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you ask 'Can you speak Hindi?'", "answer": "क्या तुम हिंदी बोल सकते हो?" },
+      { "type": "translate", "prompt": "How do you say 'I finished my work' (for myself)?", "answer": "मैंने अपना काम कर लिया" },
+      { "type": "fill_blank", "prompt": "वह बहुत _____ गया है (has gotten tired)", "answer": "थक" },
+      { "type": "speak", "prompt": "Tell the AI what you can do in Hindi. Use सकता/सकती हूँ." },
+      { "type": "respond", "prompt": "Someone asks 'क्या आप यह काम कर सकते हैं?' Answer them." }
+    ]
+  },
+  {
+    "id": "comparisons", "title": "इससे अच्छा Comparisons & Relatives", "subtitle": "Comparing things and using relative clauses", "chapter": 14, "cefr": "B1",
+    "grammar": "Comparisons: X + से + adjective: यह उससे अच्छा है (This is better than that). Superlative: सबसे + adjective: यह सबसे अच्छा है (This is the best). Relative-correlative: जो (who/which) and वह (that): जो आदमी वहाँ है, वह मेरा दोस्त है (The man who is there is my friend).",
+    "vocabulary": [
+      { "hindi": "से (comparison)", "transliteration": "se", "english": "Than" },
+      { "hindi": "सबसे", "transliteration": "sabse", "english": "The most / -est" },
+      { "hindi": "जो", "transliteration": "jo", "english": "Who / which" },
+      { "hindi": "वहाँ", "transliteration": "vahāṅ", "english": "There" },
+      { "hindi": "जैसा", "transliteration": "jaisā", "english": "Like / as" },
+      { "hindi": "उतना", "transliteration": "utnā", "english": "That much" },
+      { "hindi": "इतना", "transliteration": "itnā", "english": "This much" },
+      { "hindi": "और भी", "transliteration": "aur bhī", "english": "Even more" },
+      { "hindi": "थोड़ा", "transliteration": "thoṛā", "english": "A little" },
+      { "hindi": "ज़्यादा", "transliteration": "zyādā", "english": "More" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "यह किताब उससे अच्छी है।", "transliteration": "Yah kitāb usse acchī hai.", "english": "This book is better than that one." },
+      { "speaker": "B", "hindi": "हाँ, लेकिन वह सबसे अच्छी है।", "transliteration": "Hāṅ, lekin vah sabse acchī hai.", "english": "Yes, but that one is the best." },
+      { "speaker": "A", "hindi": "जो आदमी वहाँ खड़ा है, वह कौन है?", "transliteration": "Jo ādmī vahāṅ khaṛā hai, vah kaun hai?", "english": "Who is the man standing there?" },
+      { "speaker": "B", "hindi": "वह मेरे पिता हैं।", "transliteration": "Vah mere pitā haiṅ.", "english": "That is my father." },
+      { "speaker": "A", "hindi": "वह आपसे लंबे हैं!", "transliteration": "Vah āpse lambe haiṅ!", "english": "He is taller than you!" },
+      { "speaker": "B", "hindi": "हाँ, वह मुझसे ज़्यादा लंबे हैं।", "transliteration": "Hāṅ, vah mujhse zyādā lambe haiṅ.", "english": "Yes, he is taller than me." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'This is better than that' in Hindi?", "answer": "यह उससे अच्छा है" },
+      { "type": "translate", "prompt": "How do you say 'This is the best' in Hindi?", "answer": "यह सबसे अच्छा है" },
+      { "type": "fill_blank", "prompt": "यह उससे बड़ा _____ (is)", "answer": "है" },
+      { "type": "speak", "prompt": "Compare two things in Hindi using से and सबसे." },
+      { "type": "respond", "prompt": "Someone says 'यह किताब अच्छी है, लेकिन वह सबसे अच्छी है.' Do you agree?" }
+    ]
+  },
+  {
+    "id": "narratives", "title": "एक कहानी Narratives & Storytelling", "subtitle": "Telling stories, connecting ideas, describing events", "chapter": 15, "cefr": "B1",
+    "grammar": "Connectors for narratives: फिर (then), तब (then), उसके बाद (after that), इसलिए (therefore), क्योंकि (because), अचानक (suddenly), अंत में (finally). Use all three tenses together to tell a complete story.",
+    "vocabulary": [
+      { "hindi": "फिर", "transliteration": "phir", "english": "Then / again" },
+      { "hindi": "तब", "transliteration": "tab", "english": "Then (at that time)" },
+      { "hindi": "इसलिए", "transliteration": "islie", "english": "Therefore" },
+      { "hindi": "क्योंकि", "transliteration": "kyoṅki", "english": "Because" },
+      { "hindi": "अचानक", "transliteration": "acānak", "english": "Suddenly" },
+      { "hindi": "अंत में", "transliteration": "ant meṅ", "english": "Finally / in the end" },
+      { "hindi": "हमेशा", "transliteration": "hameśā", "english": "Always" },
+      { "hindi": "कभी-कभी", "transliteration": "kabhī-kabhī", "english": "Sometimes" },
+      { "hindi": "बहुत दिन पहले", "transliteration": "bahut din pahle", "english": "A long time ago" },
+      { "hindi": "आखिरकार", "transliteration": "ākhirkār", "english": "Eventually" }
+    ],
+    "dialogues": [
+      { "speaker": "A", "hindi": "बहुत दिन पहले की बात है, मैं दिल्ली गया था।", "transliteration": "Bahut din pahle kī bāt hai, maiṅ dillī gayā thā.", "english": "A long time ago, I went to Delhi." },
+      { "speaker": "B", "hindi": "फिर क्या हुआ?", "transliteration": "Phir kyā huā?", "english": "Then what happened?" },
+      { "speaker": "A", "hindi": "अचानक मेरी तबीयत खराब हो गई।", "transliteration": "Acānak merī tabīyat kharāb ho gaī.", "english": "Suddenly I fell ill." },
+      { "speaker": "B", "hindi": "तुमने क्या किया?", "transliteration": "Tumne kyā kiyā?", "english": "What did you do?" },
+      { "speaker": "A", "hindi": "एक अच्छे डॉक्टर से मिला। उसने मुझे दवा दी।", "transliteration": "Ek acche ḍokṭar se milā. Usne mujhe davā dī.", "english": "I met a good doctor. He gave me medicine." },
+      { "speaker": "B", "hindi": "आखिरकार तुम ठीक हो गए?", "transliteration": "Ākhirkār tum ṭhīk ho gae?", "english": "Eventually you got better?" },
+      { "speaker": "A", "hindi": "हाँ, दो दिन में मैं ठीक हो गया।", "transliteration": "Hāṅ, do din meṅ maiṅ ṭhīk ho gayā.", "english": "Yes, in two days I got better." }
+    ],
+    "exercises": [
+      { "type": "translate", "prompt": "How do you say 'A long time ago' in Hindi?", "answer": "बहुत दिन पहले" },
+      { "type": "translate", "prompt": "How do you say 'Then what happened?' in Hindi?", "answer": "फिर क्या हुआ?" },
+      { "type": "fill_blank", "prompt": "मैं दिल्ली _____ था (had gone)", "answer": "गया" },
+      { "type": "speak", "prompt": "Tell the AI a short story about something that happened to you. Use connectors." },
+      { "type": "respond", "prompt": "A friend says 'बहुत दिन पहले मैं भारत गया था...' Ask them what happened." }
+    ]
+  }
+]
