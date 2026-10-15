@@ -1,9 +1,12 @@
 const OPENCODE_URL = "https://opencode.ai/zen/go/v1/chat/completions";
 const OPENCODE_MODEL = "deepseek-v4-flash";
-const FALLBACK_KEY = "sk-SDjjQ8NtTdpM2OmWl3GXDrPlhcQiLvZln60mSVVcJQ3rkg7trYHQoLKshcKSeg0Y";
 
 function getKey(): string {
-  return process.env.DEEPSEEK_API_KEY || FALLBACK_KEY;
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey) {
+    throw new Error("Missing DEEPSEEK_API_KEY environment variable");
+  }
+  return apiKey;
 }
 
 export interface ChatMessage {
