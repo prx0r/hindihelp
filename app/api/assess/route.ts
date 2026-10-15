@@ -1,4 +1,5 @@
 import { chatCompletion } from "@/lib/ai";
+import { assessLocally } from "@/lib/tutor";
 
 const ASSESS_PROMPT = `You are a Hindi pronunciation and grammar coach. Assess the user's spoken Hindi.
 
@@ -18,8 +19,12 @@ Return a JSON response:
 Be encouraging but honest. If they got it mostly right, say so.`;
 
 export async function POST(req: Request) {
+  let transcript = "";
+  let target = "";
   try {
-    const { transcript, target } = await req.json();
+    const body = await req.json();
+    transcript = String(body?.transcript ?? "");
+    target = String(body?.target ?? "");
     if (!transcript || !target) {
       return new Response(JSON.stringify({ error: "Missing transcript or target" }), { status: 400 });
     }
@@ -49,6 +54,11 @@ export async function POST(req: Request) {
     }
   } catch (error) {
     console.error("Assessment error:", error);
+    if (error instanceof Error && error.message.includes("Missing DEEPSEEK_API_KEY")) {
+      return new Response(JSON.stringify(assessLocally(transcript, target)), {
+        headers: { "Content-Type": "application/json" },
+      });
+    }
     return new Response(JSON.stringify({
       correct: false,
       score: 0,

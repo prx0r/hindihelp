@@ -4,6 +4,9 @@ import { useEffect, useState, useRef, use } from "react";
 import Link from "next/link";
 import { ArrowLeft, Volume2, Mic, Square, Loader2, CheckCircle2, ChevronRight, BookOpen, MessageSquare } from "lucide-react";
 import unitsData from "@/data/units.json";
+import { getSpeechRecognizer, isTranscriptionCancelled, startBrowserTranscription } from "@/lib/audio";
+import type { BrowserTranscription } from "@/lib/audio";
+import { assessLocally } from "@/lib/tutor";
 import type { Unit, AssessmentResult } from "@/lib/types";
 
 const units = unitsData as Unit[];
@@ -79,10 +82,11 @@ export default function UnitPage({ params }: Props) {
   const [exerciseAnswer, setExerciseAnswer] = useState("");
   const [exerciseFeedback, setExerciseFeedback] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
+  const [notice, setNotice] = useState("");
 
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<Blob[]>([]);
-  const recognitionRef = useRef<any>(null);
+  const transcription = useRef<BrowserTranscription | null>(null);
 
   if (!unit) {
     return (
@@ -97,70 +101,125 @@ export default function UnitPage({ params }: Props) {
 
   const isDone = completed.includes(unit.id);
 
-  async function startRecording(target?: string) {
-    if (target) setCurrentPhrase(target);
-    setResult(null);
-    audioChunks.current = [];
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const recorder = new MediaRecorder(stream, { mimeType: "audio/webm;codecs=opus" });
-    mediaRecorder.current = recorder;
-
-    recorder.ondataavailable = (e) => {
-      if (e.data.size > 0) audioChunks.current.push(e.data);
-    };
-
-    recorder.onstop = async () => {
-      stream.getTracks().forEach((t) => t.stop());
-      setTranscribing(true);
-
-      const blob = new Blob(audioChunks.current, { type: "audio/webm" });
-      const buffer = await blob.arrayBuffer();
-      const bytes = new Uint8Array(buffer);
-      let binary = "";
-      for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
-      const audioB64 = btoa(binary);
-
+  async function assessAttempt(transcript: string, phrase: string) {
+    if (transcript && phrase) {
+      setAssessing(true);
       try {
-        const tres = await fetch("/api/transcribe", {
+        const ares = await fetch("/api/assess", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ audio_b64: audioB64 }),
+          body: JSON.stringify({ transcript, target: phrase }),
         });
-        const tdata = await tres.json();
-        const transcript = tdata.text || "";
-        setTranscribing(false);
+        const aresult = await ares.json();
+        setResult(aresult);
+      } catch {
+        setResult(assessLocally(transcript, phrase));
+      } finally {
+        setAssessing(false);
+      }
+    } else if (transcript) {
+      // No target, just show transcript
+      setResult({ transcript, correct: true, feedback: "Heard you!", score: 100 });
+    } else {
+      setResult({ transcript: "", correct: false, feedback: "Couldn't hear clearly. Try again.", score: 0 });
+    }
+  }
 
-        if (transcript && currentPhrase) {
-          setAssessing(true);
-          const ares = await fetch("/api/assess", {
+  async function transcribeWithRecorder(stream: MediaStream): Promise<string> {
+    return new Promise((resolve) => {
+      const finish = async (audio: Blob[]) => {
+        try {
+          const blob = new Blob(audio, { type: "audio/webm" });
+          const buffer = await blob.arrayBuffer();
+          const bytes = new Uint8Array(buffer);
+          let binary = "";
+          for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+          const audioB64 = btoa(binary);
+          const tres = await fetch("/api/transcribe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ transcript, target: currentPhrase }),
+            body: JSON.stringify({ audio_b64: audioB64 }),
           });
-          const aresult = await ares.json();
-          setResult(aresult);
-          setAssessing(false);
-        } else if (transcript) {
-          // No target, just show transcript
-          setResult({ transcript, correct: true, feedback: "Heard you!", score: 100 });
-        } else {
-          setResult({ transcript: "", correct: false, feedback: "Couldn't hear clearly. Try again.", score: 0 });
+          const tdata = await tres.json();
+          if (!tres.ok || !tdata.text) {
+            setNotice("Server transcription is not configured. Use a browser with Hindi speech recognition.");
+            resolve("");
+            return;
+          }
+          resolve(tdata.text);
+        } catch {
+          setNotice("Transcription failed. Try again.");
+          resolve("");
         }
-      } catch {
+      };
+
+      const recorder = new MediaRecorder(stream, { mimeType: "audio/webm;codecs=opus" });
+      mediaRecorder.current = recorder;
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) audioChunks.current.push(e.data);
+      };
+      recorder.onstop = () => {
+        stream.getTracks().forEach((t) => t.stop());
+        setTranscribing(true);
+        finish(audioChunks.current).finally(() => setTranscribing(false));
+      };
+      recorder.start();
+      setTimeout(() => {
+        if (recorder.state !== "inactive") recorder.stop();
+      }, 8000);
+    });
+  }
+
+  async function startRecording(target?: string) {
+    const phrase = target ?? currentPhrase ?? unit?.vocabulary[0]?.hindi ?? "";
+    if (target) setCurrentPhrase(target);
+    setResult(null);
+    setNotice("");
+    audioChunks.current = [];
+
+    if (getSpeechRecognizer()) {
+      setRecording(true);
+      setTranscribing(true);
+      const active = startBrowserTranscription();
+      transcription.current = active;
+      try {
+        const transcript = await active.transcript;
+        transcription.current = null;
         setTranscribing(false);
-        setResult({ transcript: "", correct: false, feedback: "Transcription failed. Try again.", score: 0 });
+        await assessAttempt(transcript.trim(), phrase);
+      } catch (error) {
+        transcription.current = null;
+        setTranscribing(false);
+        if (!isTranscriptionCancelled(error)) {
+          setNotice("The browser couldn't transcribe that attempt. Please try again or check microphone permission.");
+        }
+      } finally {
+        setRecording(false);
       }
-    };
+      return;
+    }
 
-    recorder.start();
+    let stream: MediaStream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch {
+      setNotice("Microphone permission was denied. Allow microphone access or type your answer instead.");
+      return;
+    }
     setRecording(true);
-
-    setTimeout(() => {
-      if (recorder.state !== "inactive") recorder.stop();
-    }, 8000);
+    const transcript = await transcribeWithRecorder(stream);
+    setRecording(false);
+    await assessAttempt(transcript.trim(), phrase);
   }
 
   function stopRecording() {
+    const active = transcription.current;
+    transcription.current = null;
+    if (active) {
+      active.cancel();
+      setRecording(false);
+      return;
+    }
     setRecording(false);
     if (mediaRecorder.current && mediaRecorder.current.state !== "inactive") {
       mediaRecorder.current.stop();
@@ -384,6 +443,11 @@ export default function UnitPage({ params }: Props) {
                 <Loader2 className="w-4 h-4 animate-spin" /> Transcribing your speech...
               </div>
             )}
+            {notice && !transcribing && (
+              <div className="mt-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm">
+                {notice}
+              </div>
+            )}
             {assessing && (
               <div className="mt-3 rounded-xl border border-border bg-card p-3 flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-4 h-4 animate-spin" /> AI is assessing your pronunciation...
@@ -498,7 +562,7 @@ export default function UnitPage({ params }: Props) {
 
           {/* Chat with AI about this unit */}
           <Link
-            href={`/chat?unit=${unit.id}`}
+            href={`/chat?u=${unit.id}`}
             className="block w-full py-3 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 text-center font-medium transition-colors"
           >
             <MessageSquare className="w-4 h-4 inline mr-2" />

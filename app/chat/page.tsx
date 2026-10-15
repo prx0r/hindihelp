@@ -5,25 +5,19 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowLeft, Send, Bot, User, Loader2, Volume2, Mic, Square, CheckCircle2, Play, Sparkles } from "lucide-react";
 import scenariosData from "@/data/campaign.json";
-import { playHindiTTS } from "@/lib/audio";
+import unitsData from "@/data/units.json";
+import { getSpeechRecognizer, isTranscriptionCancelled, playHindiTTS, startBrowserTranscription } from "@/lib/audio";
+import type { BrowserTranscription } from "@/lib/audio";
+import { nextScriptedReply, offlineFeedback, scenarioFromUnit } from "@/lib/tutor";
+import type { Scenario, Unit } from "@/lib/types";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
 
-interface Scenario {
-  id: string;
-  title: string;
-  subtitle: string;
-  stage: number;
-  objective: string;
-  pattern: string;
-  hints: string[];
-  npcScript: { speaker: string; hindi: string; transliteration: string; english: string }[];
-}
-
 const scenarios = scenariosData as Scenario[];
+const units = unitsData as Unit[];
 
 function ScenarioSelector({ onPick }: { onPick: (s: Scenario) => void }) {
   const [recent, setRecent] = useState<string[]>([]);
@@ -88,6 +82,38 @@ function ScenarioSelector({ onPick }: { onPick: (s: Scenario) => void }) {
   );
 }
 
+async function readAssistantStream(res: Response): Promise<string> {
+  if (!res.ok) {
+    throw new Error(`Chat request failed with status ${res.status}`);
+  }
+  const reader = res.body?.getReader();
+  if (!reader) {
+    throw new Error("Chat response had no readable stream");
+  }
+
+  const decoder = new TextDecoder();
+  let full = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    const chunk = decoder.decode(value, { stream: true });
+    for (const line of chunk.split("\n")) {
+      if (!line.startsWith("data: ")) continue;
+      const data = line.slice(6);
+      if (data === "[DONE]") continue;
+      try {
+        const parsed = JSON.parse(data);
+        const delta = parsed?.choices?.[0]?.delta?.content;
+        if (delta) full += delta;
+      } catch {}
+    }
+  }
+  if (!full.trim()) {
+    throw new Error("Chat response was empty");
+  }
+  return full;
+}
+
 function ScenarioChat({ scenario, onBack }: { scenario: Scenario; onBack: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [phase, setPhase] = useState<"starting" | "active" | "feedback">("starting");
@@ -95,6 +121,7 @@ function ScenarioChat({ scenario, onBack }: { scenario: Scenario; onBack: () => 
   const [input, setInput] = useState("");
   const [recording, setRecording] = useState(false);
   const [transcribing, setTranscribing] = useState(false);
+  const [notice, setNotice] = useState("");
   const [autoPlay, setAutoPlay] = useState(true);
   const [hintLevel, setHintLevel] = useState(0);
   const [showTranslit, setShowTranslit] = useState(false);
@@ -104,6 +131,7 @@ function ScenarioChat({ scenario, onBack }: { scenario: Scenario; onBack: () => 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const audioChunks = useRef<Blob[]>([]);
+  const transcription = useRef<BrowserTranscription | null>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -127,8 +155,8 @@ function ScenarioChat({ scenario, onBack }: { scenario: Scenario; onBack: () => 
     if (phase !== "starting") return;
     setPhase("active");
     setLoading(true);
+    setNotice("");
 
-    const npcLines = scenario.npcScript.slice(0, 2).map(d => `${d.speaker}: ${d.hindi}`);
     const sceneContext = scenario.npcScript.map(d =>
       `${d.speaker} ("${d.hindi}" — ${d.transliteration} — ${d.english})`
     ).join("\n");
@@ -143,40 +171,25 @@ START: Greet Tom naturally and begin the scenario. Speak only your first line. W
 Here is the scene outline (use as reference, don't recite it):
 ${sceneContext}`;
 
-    fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        messages: [{ role: "user", content: "Start the scene. I'm Tom and I'm ready." }],
-        systemPrompt: scenarioPrompt,
-      }),
-    })
-      .then(async (res) => {
-        const reader = res.body?.getReader();
-        if (!reader) return;
-        const decoder = new TextDecoder();
-        let full = "";
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value, { stream: true });
-          for (const line of chunk.split("\n")) {
-            if (!line.startsWith("data: ")) continue;
-            const data = line.slice(6);
-            if (data === "[DONE]") continue;
-            try {
-              const parsed = JSON.parse(data);
-              const delta = parsed?.choices?.[0]?.delta?.content;
-              if (delta) full += delta;
-            } catch {}
-          }
-        }
-        if (full) {
-          setMessages([{ role: "assistant", content: full }]);
-        }
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    (async () => {
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: [{ role: "user", content: "Start the scene. I'm Tom and I'm ready." }],
+            systemPrompt: scenarioPrompt,
+          }),
+        });
+        const full = await readAssistantStream(res);
+        setMessages([{ role: "assistant", content: full }]);
+      } catch {
+        setNotice("AI conversation is unavailable, so this scenario is using its built-in script.");
+        setMessages([{ role: "assistant", content: nextScriptedReply(scenario, 0) }]);
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, [phase, scenario]);
 
   async function sendMessage(text: string) {
@@ -213,35 +226,19 @@ Rules:
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: chatHistory, systemPrompt: systemMsg }),
       });
+      const full = await readAssistantStream(res);
+      setMessages(m => [...m, { role: "assistant", content: full }]);
 
-      const reader = res.body?.getReader();
-      const decoder = new TextDecoder();
-      if (!reader) return;
-      let full = "";
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split("\n")) {
-          if (!line.startsWith("data: ")) continue;
-          const data = line.slice(6);
-          if (data === "[DONE]") continue;
-          try {
-            const parsed = JSON.parse(data);
-            const delta = parsed?.choices?.[0]?.delta?.content;
-            if (delta) full += delta;
-          } catch {}
-        }
+      // Check if scene is wrapping up
+      if (full.toLowerCase().includes("feedback") || updated.length > 10) {
+        generateFeedback([...updated, { role: "assistant", content: full }]);
       }
-      if (full) {
-        setMessages(m => [...m, { role: "assistant", content: full }]);
-
-        // Check if scene is wrapping up
-        if (full.toLowerCase().includes("feedback") || messages.length > 10) {
-          generateFeedback([...updated, { role: "assistant", content: full }]);
-        }
-      }
-    } catch {}
+    } catch {
+      const assistantTurns = updated.filter((message) => message.role === "assistant").length;
+      const scripted = nextScriptedReply(scenario, assistantTurns);
+      setMessages(m => [...m, { role: "assistant", content: scripted }]);
+      setNotice("AI conversation is unavailable, so this scenario is using its built-in script.");
+    }
     setLoading(false);
   }
 
@@ -256,34 +253,41 @@ Rules:
           systemPrompt: "You are a Hindi teacher. Give brief, encouraging feedback on a spoken Hindi practice session. 2-3 sentences max.",
         }),
       });
-      const reader = res.body?.getReader();
-      const decoder = new TextDecoder();
-      if (!reader) return;
-      let full = "";
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split("\n")) {
-          if (!line.startsWith("data: ")) continue;
-          const data = line.slice(6);
-          if (data === "[DONE]") continue;
-          try {
-            const parsed = JSON.parse(data);
-            const delta = parsed?.choices?.[0]?.delta?.content;
-            if (delta) full += delta;
-          } catch {}
-        }
-      }
-      if (full) setFeedback(full);
+      const full = await readAssistantStream(res);
+      setFeedback(full);
       setPhase("feedback");
     } catch {
-      setFeedback("Great practice! Keep speaking — the more you try, the faster you improve.");
+      setFeedback(offlineFeedback(scenario, msgs));
       setPhase("feedback");
     }
   }
 
   async function startRecording() {
+    setNotice("");
+    if (getSpeechRecognizer()) {
+      setRecording(true);
+      setTranscribing(true);
+      const active = startBrowserTranscription();
+      transcription.current = active;
+      try {
+        const transcript = await active.transcript;
+        transcription.current = null;
+        setTranscribing(false);
+        if (transcript.trim()) {
+          await sendMessage(transcript.trim());
+        }
+      } catch (error) {
+        transcription.current = null;
+        setTranscribing(false);
+        if (!isTranscriptionCancelled(error)) {
+          setNotice("The browser couldn't transcribe that attempt. Please try again or type your reply.");
+        }
+      } finally {
+        setRecording(false);
+      }
+      return;
+    }
+
     audioChunks.current = [];
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const recorder = new MediaRecorder(stream, { mimeType: "audio/webm;codecs=opus" });
@@ -313,11 +317,14 @@ Rules:
         const data = await res.json();
         const transcript = data.text || "";
         setTranscribing(false);
-        if (transcript.trim()) {
+        if (res.ok && transcript.trim()) {
           await sendMessage(transcript.trim());
+        } else {
+          setNotice("Server transcription is not configured. Type your reply or use a browser with Hindi speech recognition.");
         }
       } catch {
         setTranscribing(false);
+        setNotice("Transcription failed. Type your reply or try again.");
       }
     };
 
@@ -329,6 +336,13 @@ Rules:
   }
 
   function stopRecording() {
+    const active = transcription.current;
+    transcription.current = null;
+    if (active) {
+      active.cancel();
+      setRecording(false);
+      return;
+    }
     setRecording(false);
     if (mediaRecorder.current && mediaRecorder.current.state !== "inactive") {
       mediaRecorder.current.stop();
@@ -396,6 +410,12 @@ Rules:
             Speak in Hindi...
           </span>
           <button onClick={stopRecording} className="text-sm text-red-400"><Square className="w-3 h-3" /></button>
+        </div>
+      )}
+
+      {notice && (
+        <div className="mb-3 rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 text-sm">
+          {notice}
         </div>
       )}
 
@@ -544,6 +564,13 @@ function ChatRouter() {
     if (sid) {
       const found = scenarios.find(s => s.id === sid);
       if (found) setScenario(found);
+      return;
+    }
+
+    const uid = searchParams.get("u");
+    if (uid) {
+      const unit = units.find(u => u.id === uid);
+      if (unit) setScenario(scenarioFromUnit(unit));
     }
   }, [searchParams]);
 
@@ -555,7 +582,8 @@ function ChatRouter() {
           setScenario(null);
           try {
             const r = JSON.parse(localStorage.getItem("hindihelp_recent_scenarios") || "[]");
-            const updated = [scenario.id, ...r.filter((x: string) => x !== scenario.id)].slice(0, 5);
+            const filtered = r.filter((x: string) => x !== scenario.id);
+            const updated = scenario.id.startsWith("unit-") ? filtered : [scenario.id, ...filtered].slice(0, 5);
             localStorage.setItem("hindihelp_recent_scenarios", JSON.stringify(updated));
           } catch {}
         }}

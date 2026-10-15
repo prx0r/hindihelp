@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 
 const EDGE_TTS_URL = "https://speech.platform.bing.com/recognize";
 
+const ALLOWED_VOICES = new Set(["hi-IN-SwaraNeural", "hi-IN-MadhurNeural"]);
+
 interface EdgeTTSOptions {
   text: string;
   voice?: string;
@@ -20,12 +22,18 @@ function buildSSML({ text, voice = "hi-IN-SwaraNeural", rate = 0.9 }: EdgeTTSOpt
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const text = (body?.text ?? "").trim();
+    const text = String(body?.text ?? "").trim().slice(0, 1000);
     if (!text) {
       return NextResponse.json({ fallback: true, message: "Missing text" });
     }
 
-    const ssml = buildSSML({ text, voice: body?.voice || "hi-IN-SwaraNeural", rate: body?.rate || 0.9 });
+    const requestedVoice = typeof body?.voice === "string" ? body.voice : "hi-IN-SwaraNeural";
+    const voice = ALLOWED_VOICES.has(requestedVoice) ? requestedVoice : "hi-IN-SwaraNeural";
+    const requestedRate = Number(body?.rate);
+    const rate = Number.isFinite(requestedRate)
+      ? Math.min(1.5, Math.max(0.5, requestedRate))
+      : 0.9;
+    const ssml = buildSSML({ text, voice, rate });
 
     try {
       const tokenRes = await fetch("https://edge-tts-server.com/token", {

@@ -55,6 +55,13 @@ export interface CampaignStage {
   hints: string[];
 }
 
+export interface Scenario extends CampaignStage {}
+
+export interface LocalAssessment extends AssessmentResult {
+  offline: true;
+  missing: string[];
+}
+
 export interface HintLevel {
   level: 1 | 2 | 3 | 4 | 5;
   content: string;
